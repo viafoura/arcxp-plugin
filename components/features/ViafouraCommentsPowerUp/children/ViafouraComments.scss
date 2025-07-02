@@ -1,0 +1,104 @@
+.container {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #db443f;
+  padding: 20px;
+  box-sizing: border-box;
+  h1 {
+    font-size: 28px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    b {
+      font-weight: 600;
+    }
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1b2039;
+    border: 1px solid #666;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #394379;
+      color: #f5f5f5;
+    }
+  }
+
+  select {
+    width: 100%;
+    font-size: 1.15rem;
+    padding: 0.675em 6em 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+    cursor: pointer;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.675em 1em;
+    background-color: #fff;
+    border: 1px solid #caced1;
+    border-radius: 0.25rem;
+    color: #000;
+  }
+}
+
+.view {
+  gap: 10px;
+  padding: 10px;
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+  .channelName {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  &.error {
+    h2 {
+      color: #ff0000;
+    }
+  }
+}
+
+.optionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #db443f;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+#fusion-app {
+  height: 100%;
+  width: 100%;
+}

@@ -31,7 +31,7 @@ export const CommentsComponent = ({ embed }) => {
       }
 
       const container = document.querySelector('.viafoura');
-      let containerId = data.channelId;
+      let containerId = data.containerId;
       if (container) {
           container.innerHTML = `<vf-conversations vf-container-id="${containerId}"></vf-conversations><vf-tray-trigger floating="true"></vf-tray-trigger>`;
       }
