@@ -30,6 +30,7 @@ export const CreateContainer = ({ initialValue, onCreateContainer }) => {
         type="text"
         className="form-control search-input"
         placeholder="Container ID"
+        value={newContainerId}
         onChange={(e) => {
           setError(null);
           setNewContainerId(e.target.value);
