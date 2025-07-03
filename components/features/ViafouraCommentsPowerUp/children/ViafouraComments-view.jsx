@@ -33,8 +33,7 @@ const ViafouraCommentsView = () => {
       <Title />
       <div className="channelName">
         <p>Comments Container ID</p>
-
-        <h2> {containerId}</h2>
+        <h2 style={{ color: '#000'}}> {containerId}</h2>
       </div>
       <button
         className='buttonPrimary'
