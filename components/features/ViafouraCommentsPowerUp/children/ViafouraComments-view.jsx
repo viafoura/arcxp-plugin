@@ -37,6 +37,7 @@ const ViafouraCommentsView = () => {
         <h2> {containerId}</h2>
       </div>
       <button
+        className='buttonPrimary'
         onClick={() => {
           window.open("https://console.viafoura.co/moderation/workspaces", '_blank');
         }}

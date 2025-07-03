@@ -77,11 +77,10 @@ const ViafouraCommentsEdit = () => {
       <Title />
       <CreateContainer initialValue={containerId} onCreateContainer={handleCreateContainer} />
       <button
-        className="cancelButton"
+        className='buttonPrimary'
         onClick={cancel}
         style={{
           alignSelf: 'end',
-          backgroundColor: '#8a2929',
         }}
       >
         Cancel

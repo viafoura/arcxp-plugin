@@ -25,7 +25,7 @@ export const CreateContainer = ({ initialValue, onCreateContainer }) => {
 
   return (
     <div className="optionContainer">
-      <h2>Create a comment container</h2>
+      <h2>New comment container</h2>
       <input
         type="text"
         className="form-control search-input"
@@ -38,7 +38,7 @@ export const CreateContainer = ({ initialValue, onCreateContainer }) => {
       ></input>
       <p style={{ color: 'red' }}>{error}</p>
       <button
-        className="finishButton"
+        className="buttonSecondary"
         // disabled={!newChannelName}
         onClick={() => handleCreateContainer()}
       >
