@@ -39,7 +39,7 @@ export const CreateContainer = ({ initialValue, onCreateContainer }) => {
       <p style={{ color: 'red' }}>{error}</p>
       <button
         className="buttonSecondary"
-        // disabled={!newChannelName}
+        disabled={!newContainerId}
         onClick={() => handleCreateContainer()}
       >
         Create container
