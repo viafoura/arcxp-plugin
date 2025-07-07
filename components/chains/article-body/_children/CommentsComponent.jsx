@@ -1,15 +1,9 @@
 import { useEffect } from 'react';
 
-/**
- * Handles the composer-driven sidebar component together with the power-up for sidebars
- * @param {*} embed - power-up stored data (custom_embed)
- * @returns
- */
 export const CommentsComponent = ({ embed }) => {
   const data = embed.config;
 
   useEffect(() => {
-    // Function to dynamically load scripts
     const loadScript = (src) => {
       return new Promise((resolve, reject) => {
         const script = document.createElement('script');
@@ -22,36 +16,45 @@ export const CommentsComponent = ({ embed }) => {
       });
     };
 
-    // Load scripts and initialize window.vf
     const initComments = async () => {
-      if (!window.vf) {
-        await loadScript(
-          '//cdn.viafoura.net/entry/index.js'
-        )
-      }
+      Array.from(document.scripts).some(s => s.src === new URL('//cdn.viafoura.net/entry/index.js', location.origin).href)
+        ? undefined
+        : await loadScript('//cdn.viafoura.net/entry/index.js');
 
-      const container = document.querySelector('.viafoura');
+      const container = document.getElementById('viafoura-conversation-holder');
       let containerId = data.containerId;
+      embedContainerId(containerId);
+
       if (container) {
-          container.innerHTML = `<vf-conversations vf-container-id="${containerId}"></vf-conversations><vf-tray-trigger floating="true"></vf-tray-trigger>`;
+          container.innerHTML = `<vf-conversations></vf-conversations><vf-tray-trigger floating="true"></vf-tray-trigger>`;
       }
     };
+
+    const embedContainerId = (containerId) => {
+      let meta = document.querySelector('meta[name="vf:container_id"]');
+      if (meta) {
+        meta.setAttribute('content', containerId);
+      } else {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', 'vf:container_id');
+        meta.setAttribute('content', containerId);
+        document.head.appendChild(meta);
+      }
+    }
 
     initComments().catch((error) =>
       console.error('Failed to initialize comments:', error)
     );
 
-    // Cleanup function to remove scripts if component unmounts
     return () => {
       const scripts = document.querySelectorAll('script[src*="viafoura.net"]');
-
       scripts.forEach((script) => script.remove());
     };
   }, []);
 
   return (
     <div className="viafoura-container">
-      <div className="viafoura">
+      <div id="viafoura-conversation-holder" className="viafoura">
         
       </div>
     </div>
