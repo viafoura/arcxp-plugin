@@ -365,6 +365,10 @@ function parseArticleItem(item, index, arcSite, phrases, id, customFields) {
           return (
             <CommentsComponent key={`${type}_${index}_${key}`} embed={item.embed} />
           );
+        case 'Viafoura Engagement Starter':
+          return (
+            <EngagementStarterComponent key={`${type}_${index}_${key}`} embed={item.embed} />
+          );
         default:
           return null;
       }
