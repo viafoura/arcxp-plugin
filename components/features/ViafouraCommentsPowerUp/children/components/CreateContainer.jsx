@@ -9,9 +9,10 @@ const generateUUID = () => {
   })
 }
 
-export const CreateContainer = ({ initialValue, onCreateContainer }) => {
+export const CreateContainer = ({ initialValue, isCreateMode, onCreateContainer }) => {
   const initialId = useMemo(() => initialValue || generateUUID(), [initialValue]);
   const [newContainerId, setNewContainerId] = useState(initialId);
+  const [initialComment, setInitialComment] = useState("");
   const [error, setError] = useState(null);
 
   function handleCreateContainer() {
@@ -20,7 +21,7 @@ export const CreateContainer = ({ initialValue, onCreateContainer }) => {
       return;
     }
 
-    onCreateContainer(newContainerId);
+    onCreateContainer(newContainerId, initialComment);
   }
 
   return (
@@ -36,6 +37,17 @@ export const CreateContainer = ({ initialValue, onCreateContainer }) => {
           setNewContainerId(e.target.value);
         }}
       ></input>
+      {isCreateMode && (
+        <input
+          type="text"
+          className="form-control search-input"
+          placeholder="Initial comment"
+          value={initialComment}
+          onChange={(e) => {
+            setInitialComment(e.target.value);
+          }}
+        />
+      )}
       <p style={{ color: 'red' }}>{error}</p>
       <button
         className="buttonSecondary"
