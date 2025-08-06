@@ -57,10 +57,12 @@ const ViafouraCommentsSearch = () => {
 
   const handleCreateContainer = (containerId, initialComment) => {
     setNewContainerId(containerId);
-    setCommentContent(initialComment);
     setIsLoading(true);
-    setFireLogin('viafoura-login');
     setFirePost('viafoura-post-container');
+    if(initialComment && initialComment.length > 0){
+      setFireLogin('viafoura-login');
+      setCommentContent(initialComment);
+    }
   };
 
   useEffect(() => {
